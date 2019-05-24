@@ -1,0 +1,52 @@
+{
+  "name": "express-middlewear",
+  "version": "0.0.0-semantically-released",
+  "description": "Collection of useful express middleware, from error handling to validation.",
+  "homepage": "https://github.com/codfish/express-middlewear",
+  "author": {
+    "name": "Chris O'Donnell",
+    "email": "dev@codfish.io",
+    "url": "https://codfish.io"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "keywords": [],
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@commitlint/cli": "^7.6.1",
+    "@commitlint/config-conventional": "^7.6.0",
+    "eslint": "^5.16.0",
+    "eslint-config-codfish": "^2.5.0",
+    "husky": "^1.3.1",
+    "jest": "^24.8.0",
+    "lint-staged": "^8.1.7",
+    "markdownlint-cli": "^0.16.0",
+    "prettier": "^1.17.1"
+  },
+  "engines": {
+    "npm": ">= 4.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codfish/express-middlewear.git"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "scripts": {
+    "build": "babel src -d dist --copy-files",
+    "watch": "babel src -d dist --copy-files --watch",
+    "test": "jest --watchAll --verbose=true --silent",
+    "test:ci": "jest --verbose=true --silent --ci --coverage",
+    "fix": "npm run format && npm run lint -- --fix",
+    "format": "prettier --write \"**/*.{json,css,scss,md,html}\"",
+    "lint": "eslint .",
+    "lint:md": "markdownlint -i node_modules -i dist .",
+    "validate": "npm run lint && npm run lint:md"
+  }
+}
